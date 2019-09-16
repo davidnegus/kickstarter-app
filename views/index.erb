@@ -1,0 +1,12 @@
+<section>
+    <h1>Projects</h1>
+    <%projects.each do |project|%>
+        <article>
+            <h2><%=project.title%></h2>
+            <p>fundraising target £<%=project.goal%></p>
+            <a href="/projects/<%=project.id%>/delete">delete</a>
+            <a href="/projects/<%=project.id%>/edit">edit</a>
+        </article>
+    <%end%>
+    <a href="/projects/new">Create a project</a>
+</section>

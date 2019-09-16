@@ -1,0 +1,5 @@
+<form action="/projects/<%=project.id%>" method="POST">
+    <input name="title" required value="<%=project.title%>"/>
+    <input name="goal" required type="number" value="<%=project.goal%>"/>
+    <button type="submit">Update!</button>
+</form>
