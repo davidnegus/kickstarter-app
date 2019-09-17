@@ -6,8 +6,16 @@
     </head>
     <body>
         <header>
-            <h1>Kickstarter</h1>
+            <h1><a href="/projects">Kickstarter</a></h1>
             <a class="cap" href="/projects/new">Create A Project!</a>
+            <%unless session[:user] != nil%>
+                <a href="/users/new">Log In</a>
+            <%end%>
+            <%unless session[:user].nil?%>
+                <p>Logged in as: <%=session[:user].name%></p>
+                <a href="/users/logout">Logout</a>
+            <%end%>
+            
         </header>
         <main>
             <%=yield%>

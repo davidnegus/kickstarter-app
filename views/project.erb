@@ -1,0 +1,16 @@
+<article>
+    <h2><%=project.title%></h2>
+    <p>fundraising target £<%=project.goal%></p>
+    <p>current amount: £<%=project.pledges.reduce(0) {|total, p| total=+p.amount}%>
+    <form action="/projects/<%=project.id%>/donate" method="POST">
+        <input required name="amount" type="number" placeholder="£">
+        <button type="submit>">Donate!</button>
+    </form>
+
+    <% project.pledges.each do |pledge|%>
+        <p><%=pledge.user.name%> donated <%=pledge.amount%></p>
+    <%end%>
+
+    <a href="/projects/<%=project.id%>/delete"><i class="fas fa-trash-alt"></i></a>
+    <a href="/projects/<%=project.id%>/edit"><i class="fas fa-pencil-alt"></i></a>
+</article>
